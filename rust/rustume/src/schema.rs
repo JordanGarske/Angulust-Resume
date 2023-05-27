@@ -1,5 +1,5 @@
 // @generated automatically by Diesel CLI.
-
+mod user;
 diesel::table! {
     client (client_id) {
         client_id -> Int4,
