@@ -1,4 +1,4 @@
-interface User {
+export interface User {
     client_id: number;
     first_name: string;
     last_name: string;
@@ -6,7 +6,7 @@ interface User {
     email: string;
     admin_privilege: boolean;
   }
-  interface User {
+export interface User {
     client_id: number;
     first_name: string;
     last_name: string;

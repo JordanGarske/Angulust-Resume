@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
-
+import {User} from '../../models/user';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
