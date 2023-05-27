@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -6,15 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
-  formData = {
-    firstName: '',
-    lastName: '',
-    password: '',
-    email: ''
-  };
-
+   userData: User= {
+     client_id: 1,
+     first_name: '',
+     last_name: '',
+     client_password: '',
+     email: '',
+     admin_privilege: false
+   };
+   createdUser?:User;
+  constructor(private userService: UserService){
+  }
   onSubmit() {
-    console.log(this.formData);
-    // Perform sign-up logic here, such as sending the form data to a server
+    this.userService.addNewUser(this.userData).subscribe(user => this.createdUser = user );
   }
 }
