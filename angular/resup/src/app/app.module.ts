@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SignupComponent } from './authentication/signup/signup.component';
-import { LoginComponent } from './authentication/login/login.component'; 
+import { LoginComponent } from './authentication/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { LoginComponent } from './authentication/login/login.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
