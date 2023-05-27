@@ -1,11 +1,15 @@
 // @generated automatically by Diesel CLI.
-mod user;
+
 diesel::table! {
     client (client_id) {
         client_id -> Int4,
+        #[max_length = 50]
         first_name -> Varchar,
+        #[max_length = 50]
         last_name -> Varchar,
+        #[max_length = 20]
         client_password -> Varchar,
+        #[max_length = 50]
         email -> Varchar,
         admin_privilege -> Bool,
     }
@@ -25,7 +29,9 @@ diesel::table! {
 diesel::table! {
     room (room_id) {
         room_id -> Int4,
+        #[max_length = 50]
         title -> Varchar,
+        #[max_length = 500]
         elucidation -> Varchar,
     }
 }
@@ -35,8 +41,11 @@ diesel::table! {
         subject_id -> Int4,
         client_room_id -> Int4,
         room_id -> Int4,
+        #[max_length = 50]
         title -> Varchar,
+        #[max_length = 500]
         elucidation -> Varchar,
+        #[max_length = 50]
         subject_type -> Varchar,
     }
 }
@@ -46,7 +55,9 @@ diesel::table! {
         chat_id -> Int4,
         subject_id -> Int4,
         client_id -> Int4,
+        #[max_length = 50]
         title -> Varchar,
+        #[max_length = 500]
         elucidation -> Varchar,
         user_message -> Varchar,
     }

@@ -1593,6 +1593,7 @@ dependencies = [
 name = "rustume"
 version = "0.1.0"
 dependencies = [
+ "diesel",
  "dotenvy",
  "rocket 0.5.0-rc.3",
  "rocket_contrib",
