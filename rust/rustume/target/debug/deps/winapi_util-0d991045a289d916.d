@@ -1,0 +1,10 @@
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\winapi_util-0d991045a289d916.rmeta: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\console.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\file.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\win.rs
+
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\libwinapi_util-0d991045a289d916.rlib: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\console.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\file.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\win.rs
+
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\winapi_util-0d991045a289d916.d: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\console.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\file.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\win.rs
+
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\lib.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\console.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\file.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winapi-util-0.1.5\src\win.rs:

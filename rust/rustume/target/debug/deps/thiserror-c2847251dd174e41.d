@@ -1,0 +1,10 @@
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\thiserror-c2847251dd174e41.rmeta: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\aserror.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\display.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\provide.rs
+
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\libthiserror-c2847251dd174e41.rlib: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\aserror.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\display.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\provide.rs
+
+D:\projects_for_programming\Angulust\rust\rustume\target\debug\deps\thiserror-c2847251dd174e41.d: C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\lib.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\aserror.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\display.rs C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\provide.rs
+
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\lib.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\aserror.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\display.rs:
+C:\Users\Jordan_Garske\.cargo\registry\src\index.crates.io-6f17d22bba15001f\thiserror-1.0.40\src\provide.rs:
