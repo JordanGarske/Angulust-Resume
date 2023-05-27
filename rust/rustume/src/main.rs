@@ -29,6 +29,8 @@ async fn create_user(user:Json<User>, conn:Db) -> Json<NewUser>{
 // //if rocket will not luanch try to remove the database of .attach(Db::fairing())
 #[launch]
 fn rocket() -> _ {
-    rocket::build().mount("/", routes![])
+    rocket::build()
+    .attach(Db::fairing())
+    .mount("/", routes![])
     
 }
