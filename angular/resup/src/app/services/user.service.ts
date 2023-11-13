@@ -15,6 +15,9 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   addNewUser(newUser: User): Observable<User>{
-    return this.http.post<User>(this.urlUser, newUser, this.httpOptions);
+    return this.http.post<User>(`${this.urlUser}sign-up`, newUser, this.httpOptions);
+  }
+  loginUser(user: User): Observable<boolean>{
+    return this.http.post<boolean>(`${this.urlUser}login`, user, this.httpOptions);
   }
 }

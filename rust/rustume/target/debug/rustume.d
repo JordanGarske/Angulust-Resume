@@ -1,1 +1,1 @@
-D:\projects_for_programming\Angulust\rust\rustume\target\debug\rustume.exe: D:\projects_for_programming\Angulust\rust\rustume\src\main.rs D:\projects_for_programming\Angulust\rust\rustume\src\models.rs D:\projects_for_programming\Angulust\rust\rustume\src\schema.rs
+/home/jordangarske/rust/Angulust-Resume/rust/rustume/target/debug/rustume: /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/main.rs /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/models.rs /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/schema.rs

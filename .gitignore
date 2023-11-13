@@ -1,5 +1,7 @@
-target,
-node_modules,
-rustume.d,
-rustume.exe,
-debug
+target/
+target
+node_modules/
+dist/
+static/
+angularize/
+angularize/
