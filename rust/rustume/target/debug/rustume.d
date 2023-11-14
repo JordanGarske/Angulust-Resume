@@ -1,1 +1,0 @@
-/home/jordangarske/rust/Angulust-Resume/rust/rustume/target/debug/rustume: /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/main.rs /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/models.rs /home/jordangarske/rust/Angulust-Resume/rust/rustume/src/schema.rs

@@ -15,8 +15,12 @@ pub async fn create_user(user:Json<User>, conn:Db) -> Json<User>{
         admin_privilege: false,
     };
     conn.run(move |c| {
-        diesel::insert_into(client::table).values(new_user).get_result::<User>(c)
-    }).await.map(Json).expect("the information was not valid")
+        diesel::insert_into(client::table)
+        .values(new_user).get_result::<User>(c)
+    })
+    .await
+    .map(Json)
+    .expect("the information was not valid")
     }
 
 
