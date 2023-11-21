@@ -1,4 +1,5 @@
 #[macro_use] extern crate rocket;
+use rocket::{serde::json::Json, fs::FileServer, fs::relative};
 use rocket_sync_db_pools::database;
 //the raw struct that are produce by diesel
 mod schema;
@@ -14,5 +15,5 @@ fn rocket() -> _ {
     rocket::build()
     .attach(Db::fairing())
     .mount("/", authentication::routes())
-    .mount("/", FileServer::from(relative!("static/angular")))
+    .mount("/", FileServer::from(relative!("static/resup")))
 }
