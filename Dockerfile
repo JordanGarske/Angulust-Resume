@@ -12,6 +12,7 @@ RUN  apt-get install -y openssl
 # Change the working directory to /app/rustume/src and build the Rust application using Cargo
 WORKDIR /app/rustume/src
 RUN cargo build --release
+# set up the postgres database so all tool are supported
 RUN apt-get update && apt-get install -y libpq-dev
 # Stage 2: Create the final minimal image
  FROM debian:buster
@@ -25,3 +26,4 @@ RUN apt-get update && apt-get install -y openssl
 
 
 CMD ["rustume"]
+EXPOSE 6666

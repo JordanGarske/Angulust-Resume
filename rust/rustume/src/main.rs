@@ -14,4 +14,5 @@ fn rocket() -> _ {
     rocket::build()
     .attach(Db::fairing())
     .mount("/", authentication::routes())
+    .mount("/", FileServer::from(relative!("static/angular")))
 }
