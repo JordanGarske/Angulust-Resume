@@ -1,2 +1,6 @@
 [default.databases.my_db]
-url = "postgres://postgres:Jordago99!@localhost/users"
+url = "postgres://postgres:postgres@db:5432/postgres"
+[default]
+secret_key = "5lGEQSJqDo0gy34R3QC7C958vn6VUrOsPlWbUChMrDs="
+address = "0.0.0.0"
+port = 8000
