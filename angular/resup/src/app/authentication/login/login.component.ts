@@ -25,8 +25,15 @@ export class LoginComponent {
              this.router.navigate(["/home"]);
            }
            else{
-             //this.valid = "failed to login"
+            this.userData.client_password= "";
+            this.userData.email= "";
            }
          });
-  }}
+  }
+  signup(): void {
+
+      this.router.navigate(["/signup"]);
+  }
+
+}
 

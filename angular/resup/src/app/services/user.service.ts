@@ -8,7 +8,7 @@ import {User} from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private  urlUser = "http://127.0.0.1:8000/";
+  private  urlUser = "http://0.0.0.0:8080/";
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };

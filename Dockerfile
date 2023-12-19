@@ -20,13 +20,13 @@ WORKDIR /app/rust/rustume/src
 RUN cargo build --release
 
 # Stage 2: Create the final minimal image
-FROM debian:buster
+FROM debian:bullseye-slim as final
 
 # Install necessary libraries
 RUN apt-get update && \
     apt-get install -y libpq5 && \
     rm -rf /var/lib/apt/lists/*
-
+RUN apt-get update && apt-get install -y ca-certificates
 # Copy the binary from the build stage to the final image
 COPY --from=build /app/rust/rustume/target/release/rustume /usr/local/bin/rustume
 COPY --from=build /app/rust/rustume/Rocket.toml /usr/local/bin
