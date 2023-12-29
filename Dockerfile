@@ -27,6 +27,8 @@ RUN apt-get update && \
     apt-get install -y libpq5 && \
     rm -rf /var/lib/apt/lists/*
 RUN apt-get update && apt-get install -y ca-certificates
+#RUN apt-get update && apt-get install -y postgresql
+
 # Copy the binary from the build stage to the final image
 COPY --from=build /app/rust/rustume/target/release/rustume /usr/local/bin/rustume
 COPY --from=build /app/rust/rustume/Rocket.toml /usr/local/bin
@@ -37,7 +39,7 @@ COPY /rust/rustume/static /app/rust/rustume/static
 WORKDIR /usr/local/bin
 
 # Expose the port your Rust application is using
-EXPOSE 8080
+EXPOSE 80
 
 # Define the default command to run your Rust application
 CMD ["rustume"]

@@ -6,33 +6,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './authentication/signup/signup.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { AppRoutingModule } from './app-routing.module'; 
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './navbar-folder/home/home.component';
 
 //angular material 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatIconModule} from '@angular/material/icon';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RoadMapComponent } from './navbar-folder/road-map/road-map.component';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    RoadMapComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatInputModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
     AppRoutingModule,
     HttpClientModule,
   ],

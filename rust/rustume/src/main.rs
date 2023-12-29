@@ -1,5 +1,5 @@
 #[macro_use] extern crate rocket;
-use rocket::{serde::json::Json, fs::FileServer, fs::relative};
+use rocket::{fs::FileServer, fs::relative};
 use rocket_sync_db_pools::database;
 //the raw struct that are produce by diesel
 mod schema;
@@ -7,6 +7,7 @@ mod schema;
 mod models;
 //model for all the autehntication like loging in,cookies, and sign up
 mod authentication;
+mod admin;
 #[database("my_db")]
 pub struct Db(diesel::PgConnection);
 
@@ -14,6 +15,8 @@ pub struct Db(diesel::PgConnection);
 fn rocket() -> _ {
     rocket::build()
     .attach(Db::fairing())
+    .mount("/admin", admin::routes())
     .mount("/", authentication::routes())
     .mount("/", FileServer::from(relative!("static/resup")))
 }
+

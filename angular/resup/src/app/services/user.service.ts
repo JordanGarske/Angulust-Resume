@@ -8,7 +8,7 @@ import {User} from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  private  urlUser = "http://0.0.0.0:8080/";
+  private  urlUser = "http://www.jordan-garske.com/";
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -20,4 +20,15 @@ export class UserService {
   loginUser(user: User): Observable<boolean>{
     return this.http.post<boolean>(`${this.urlUser}login`, user, this.httpOptions);
   }
+  //crud 
+  getUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlUser}admin/get_user`);
+  }
+  getLogs(user: User): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlUser}admin/get_user`);
+  }
+  deleteUser(user: User): Observable<boolean>{
+    return this.http.post<boolean>(`${this.urlUser}admin/delete_user`, user, this.httpOptions);
+  }
+  
 }

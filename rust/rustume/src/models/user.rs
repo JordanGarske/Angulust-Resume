@@ -13,6 +13,19 @@ pub struct User{
     pub admin_privilege: bool
 
 }
+impl  User {
+    fn defualt(id:i32) -> User{
+        User{
+            client_id: id,
+            first_name: "".to_string(),
+            last_name: "".to_string(),
+            client_password: "".to_string(),
+            email: "".to_string(),
+            admin_privilege: false,
+        }
+    }
+}
+
 #[derive(Serialize, Queryable)]
 #[diesel(table_name = client)]
 pub struct UserClientInfo{

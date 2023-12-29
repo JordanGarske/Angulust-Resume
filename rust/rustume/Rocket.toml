@@ -1,6 +1,6 @@
 [default.databases.my_db]
-url = "postgres://postgres:postgres@db:5432/postgres"
+url = "postgres://postgres:remylove1414@rustumedatabase.ctty7jlgirvi.us-east-1.rds.amazonaws.com:5432/rustumedb"
 [default]
 secret_key = "5lGEQSJqDo0gy34R3QC7C958vn6VUrOsPlWbUChMrDs="
 address = "0.0.0.0"
-port = 8080              
+port = 80           

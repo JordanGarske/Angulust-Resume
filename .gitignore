@@ -4,3 +4,9 @@ node_modules/
 dist/
 angularize/
 angularize/
+rust/rustume/.env
+rust/rustume/Rocket.toml
+rust/rustume/Rocket.toml
+package-lock.json
+password.txt
+rust/rustume/static/resup/

@@ -2,8 +2,8 @@ use rocket::{http::CookieJar, serde::json::Json};
 use diesel::{RunQueryDsl, QueryDsl, ExpressionMethods, BoolExpressionMethods};
 use crate::{Db, schema::client::{self, client_password, email}, models::user::{User,UserClientInfo}};
 use crate::authentication::cookie::bake_cookie;
-//login in the user 
-//returns a cookie and information back to client
+//deccription: logs user into the website
+//return: gives back a cookie and user Json back to the client
 #[post("/login",format = "json", data="<user>")]
 pub async fn login_user(user:Json<User>, conn:Db,  jar: &CookieJar<'_>) -> Json<UserClientInfo>{
     let user = user.into_inner();
