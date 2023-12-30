@@ -5,7 +5,7 @@ use crate::authentication::cookie::bake_cookie;
 use crate::admin::Admin;
 
 
-#[get("/get_users")]
+#[get("/get_user")]
 pub async fn get_users(_admin: Admin<'_>, conn:Db) -> Json<Vec<User>>{
     let result = conn.run(move |c| {
         let users= client::table.select(client::all_columns).load::<User>(c);

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { User, UserLogin } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,23 +10,21 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent {
   constructor(private userService: UserService, private router: Router){}
-  userData: User= {
-    client_id: 1,
-    first_name: '',
-    last_name: '',
+  userData: UserLogin= {
     client_password: '',
     email: '',
-    admin_privilege: false
   };
-  createdUser?:User;
   onSubmit() {
     this.userService.loginUser(this.userData).subscribe(result => {    
-          if(result){
-             this.router.navigate(["/home"]);
+          if(result.approved ){
+             
+           }
+           else if(result.admin){
+            this.router.navigate(["/admin"]);
+            
            }
            else{
-            this.userData.client_password= "";
-            this.userData.email= "";
+            this.router.navigate(["/home"]);
            }
          });
   }

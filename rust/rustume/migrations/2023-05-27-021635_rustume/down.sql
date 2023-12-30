@@ -6,4 +6,5 @@
 DROP TABLE IF EXISTS message;
 DROP TABLE IF EXISTS client_to_room;
 DROP TABLE IF EXISTS room;
+DROP TABLE IF EXISTS personal_reference;
 DROP TABLE IF EXISTS client;

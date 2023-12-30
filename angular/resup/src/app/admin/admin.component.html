@@ -7,12 +7,21 @@
     <!-- Second div taking half the screen -->
     <div class="col-md-6">
       <div *ngFor="let user of users">
+        <h5 >{{didUpdate}}</h5>
         <div class="card flex-row">
+          
           <div class="card-body">
-            <p class="card-text">{{user}}</p>
+            <p class="card-text">{{user.client_id}}</p>
+            <p class="card-text">{{user.first_name}}</p>
+            <p class="card-text">{{user.last_name}}</p>
+            <p class="card-text">{{user.email}}</p>
+            <p class="card-text">{{user.admin_privilege}}</p>
           </div>
-          <div class="card-footer text-right" (click)="deleteUserButton">
-            <button type="button" class="btn btn-danger">Delete</button>
+          <div class="card-footer text-right" (click)="deleteUserButton(user.client_id)">
+            <button type="button" class="btn primary">Delete</button>
+          </div>
+          <div class="card-footer text-right" (click)="referencePermissionButton(user.client_id)">
+            <button type="button" class="btn btn-danger">make reference</button>
           </div>
         </div>
       </div>

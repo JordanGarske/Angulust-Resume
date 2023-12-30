@@ -3,15 +3,22 @@
 diesel::table! {
     client (client_id) {
         client_id -> Int4,
+        personal_review_id -> Nullable<Int4>,
+        #[max_length = 20]
+        client_password -> Varchar,
+        #[max_length = 100]
+        email -> Varchar,
+        admin_privilege -> Bool,
         #[max_length = 50]
         first_name -> Varchar,
         #[max_length = 50]
         last_name -> Varchar,
-        #[max_length = 20]
-        client_password -> Varchar,
+        #[max_length = 15]
+        phone_number -> Nullable<Varchar>,
         #[max_length = 50]
-        email -> Varchar,
-        admin_privilege -> Bool,
+        profession -> Varchar,
+        #[max_length = 50]
+        company -> Varchar,
     }
 }
 
@@ -27,12 +34,22 @@ diesel::table! {
 }
 
 diesel::table! {
-    message (client_room_id) {
+    message (message_id) {
+        message_id -> Int4,
         client_room_id -> Int4,
         client_id -> Int4,
         room_id -> Int4,
         #[max_length = 2000]
         client_message -> Varchar,
+    }
+}
+
+diesel::table! {
+    personal_reference (personal_review_id) {
+        personal_review_id -> Int4,
+        client_id -> Int4,
+        #[max_length = 2000]
+        elucidation -> Varchar,
     }
 }
 
@@ -55,5 +72,6 @@ diesel::allow_tables_to_appear_in_same_query!(
     client,
     client_to_room,
     message,
+    personal_reference,
     room,
 );

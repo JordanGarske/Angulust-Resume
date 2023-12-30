@@ -23,6 +23,18 @@
               <label for="email" class="form-label">Email</label>
               <input class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="userData.email" type="email" required>
             </div>
+            <div class="mb-3">
+              <label for="phone_number" class="form-label">optional: phone number</label>
+              <input class="form-control" id="firstName" placeholder="(XXX) XXX-XXXX" name="firstName" [(ngModel)]="userData.phone_number" required>
+            </div>
+            <div class="mb-3">
+              <label for="profession" class="form-label">work palce</label>
+              <input class="form-control" id="firstName" placeholder="Bobcat" name="firstName" [(ngModel)]="userData.profession" required>
+            </div>
+            <div class="mb-3">
+              <label for="company" class="form-label">company</label>
+              <input class="form-control" id="firstName" placeholder="Bobcat" name="firstName" [(ngModel)]="userData.company" required>
+            </div>
             <button class="btn btn-primary" type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
           </form>
         </div>

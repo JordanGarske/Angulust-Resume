@@ -1,3 +1,4 @@
+use diesel::SelectableHelper;
 //rocket crates
 use rocket::http::Status;
 use rocket::request::{Outcome, Request, FromRequest};
@@ -5,10 +6,11 @@ use rocket::request::{Outcome, Request, FromRequest};
 use diesel::{QueryDsl,RunQueryDsl, result::Error};
 //rustume crates
 use crate::Db;
-use crate::{schema::client::{self}, models::user::User};
+use crate::models::user::AdminUser;
+use crate::schema::client::{self};
 use crate::authentication::cookie::cookie_thief;
-pub(crate) mod get;
-use crate::admin::get::get_users;
+pub(crate) mod admin_user_access;
+use crate::admin::admin_user_access::user::get_users;
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //routing for rocket
 
@@ -32,9 +34,9 @@ impl<'r> FromRequest<'r> for Admin<'r> {
         let db_outcome = req.guard::<Db>().await;
         let conn: Db = db_outcome.unwrap();
         let id = cookie_thief(req.cookies());
-        let item:Result<User, Error>  = conn.run(move |conn| {
+        let item:Result<AdminUser, Error>  = conn.run(move |temp_conn| {
             //find user  information
-            client::table.find(id).first::<User>(conn)
+            client::table.find(id).select(AdminUser::as_select()).first(temp_conn)
         })
         .await;
 

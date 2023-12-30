@@ -10,12 +10,30 @@ import { User } from '../models/user';
 })
 export class AdminComponent {
 users: User[] = [];
+didUpdate:string = '';
   constructor(private userService: UserService, private router: Router){}
 
   ngOnInit(): void{
-    this.userService.getUsers().subscribe(results => this.users = results);
+    this.userService.getUsers().subscribe(results => {
+      this.users = results;
+      this.userService.setAdmin(true);
+    });
   }
-  deleteUserButton():void{
+  deleteUserButton(user: number):void{
+    this.userService.deleteUser(user).subscribe()
+  }
+  referencePermissionButton(user: number){
+    this.userService.referenceFormPermission(user).subscribe(result=>
+        this.updateResult(result)
 
+      );
+  }
+  updateResult(result: boolean):void{
+      if(result){
+        this.didUpdate = "changes where made"
+      }
+      else{
+        this.didUpdate = "did not make change"
+      }
   }
 }
