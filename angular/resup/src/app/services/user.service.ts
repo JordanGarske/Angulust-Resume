@@ -3,14 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {User, UserLogin, UserSignUp} from '../models/user';
-import { UserCredential } from '../models/credential';
+import { CredentialApproval } from '../models/credential';
 // angular models
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   private  urlUser = "http://127.0.0.1:8000/";
-  private admin:boolean = false;
+  public isAdmin:boolean = false;
+  public canWriteReference:boolean = false;
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -19,8 +20,8 @@ export class UserService {
   addNewUser(newUser: UserSignUp): Observable<User>{
     return this.http.post<User>(`${this.urlUser}sign-up`, newUser, this.httpOptions);
   }
-  loginUser(user: UserLogin): Observable<UserCredential>{
-    return this.http.post<UserCredential>(`${this.urlUser}login`, user, this.httpOptions);
+  loginUser(user: UserLogin): Observable<CredentialApproval>{
+    return this.http.post<CredentialApproval>(`${this.urlUser}login`, user, this.httpOptions);
   }
   //crud 
   getUsers(): Observable<User[]>{
@@ -33,14 +34,6 @@ export class UserService {
     return this.http.post<boolean>(`${this.urlUser}admin/delete_user`, userID, this.httpOptions);
   }
   referenceFormPermission(userID:number):Observable<boolean>{
-    return this.http.post<boolean>(`${this.urlUser}admin/reference_Permission`, userID, this.httpOptions);
-  }
-  //helpers
-  setAdmin(isAdmin: boolean):void{
-    this.admin = isAdmin
-  }
-  getAdmin():boolean{
-    return this.admin
-  }
-  
+    return this.http.post<boolean>(`${this.urlUser}admin/reference_permission_access`, userID, this.httpOptions);
+  }  
 }

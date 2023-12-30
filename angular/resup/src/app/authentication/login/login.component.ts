@@ -17,15 +17,21 @@ export class LoginComponent {
   onSubmit() {
     this.userService.loginUser(this.userData).subscribe(result => {    
           if(result.approved ){
-             
-           }
-           else if(result.admin){
-            this.router.navigate(["/admin"]);
-            
+              this.userService.isAdmin = result.admin;
+              this.userService.canWriteReference = result.can_write_reference
+              if(result.admin){
+                this.router.navigate(["/admin"]);
+              }
+              else{
+                this.router.navigate(["/home"]);
+            }
+
            }
            else{
-            this.router.navigate(["/home"]);
+              //set back to defualt value for user to try agian to login
+              userData: this.userData= {client_password: '',email: ''};
            }
+
          });
   }
   signup(): void {

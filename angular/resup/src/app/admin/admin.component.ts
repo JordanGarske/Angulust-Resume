@@ -16,7 +16,7 @@ didUpdate:string = '';
   ngOnInit(): void{
     this.userService.getUsers().subscribe(results => {
       this.users = results;
-      this.userService.setAdmin(true);
+      this.userService.isAdmin = true;
     });
   }
   deleteUserButton(user: number):void{

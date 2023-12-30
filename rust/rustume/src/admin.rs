@@ -10,12 +10,12 @@ use crate::models::user::AdminUser;
 use crate::schema::client::{self};
 use crate::authentication::cookie::cookie_thief;
 pub(crate) mod admin_user_access;
-use crate::admin::admin_user_access::user::get_users;
+use crate::admin::admin_user_access::user::{get_users,give_reference_access};
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //routing for rocket
 
 pub fn routes() -> Vec<rocket::Route> {
-    routes![get_users]
+    routes![get_users,give_reference_access]
 }
 pub struct Admin<'r>(&'r str);
 
