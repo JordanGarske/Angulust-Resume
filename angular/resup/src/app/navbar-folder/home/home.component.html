@@ -66,6 +66,13 @@
         </div>
     </div>
 </div>
-<div id="footer">
- fgdsafffffffffffffffffffff
+<div *ngFor="let ref of references">
+  <div class="card flex-row">
+    
+    <div class="card-body">
+      <p class="card-text">{{ref.first_name}}</p>
+      <p class="card-text">{{ref.last_name}}</p>
+      <p class="card-text">{{ref.elucidation}}</p>
+    </div>
+  </div>
 </div>

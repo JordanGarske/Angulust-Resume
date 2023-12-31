@@ -1,10 +1,8 @@
--- DROP TABLE IF EXISTS user_to_user_message;
--- DROP TABLE IF EXISTS user_to_user_room;
--- DROP TABLE IF EXISTS user_to_user;
--- DROP TABLE IF EXISTS subject_chat;
--- DROP TABLE IF EXISTS room_subject;
-DROP TABLE IF EXISTS message;
-DROP TABLE IF EXISTS client_to_room;
-DROP TABLE IF EXISTS room;
-DROP TABLE IF EXISTS personal_reference;
-DROP TABLE IF EXISTS client;
+-- Drop foreign key constraints in the reverse order of creation
+
+-- Drop tables in the reverse order of creation
+DROP TABLE message;
+DROP TABLE client_to_room;
+DROP TABLE room;
+DROP TABLE personal_reference;
+DROP TABLE client;

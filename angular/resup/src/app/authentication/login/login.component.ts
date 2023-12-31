@@ -15,10 +15,11 @@ export class LoginComponent {
     email: '',
   };
   onSubmit() {
-    this.userService.loginUser(this.userData).subscribe(result => {    
+    this.userService.loginUser(this.userData).subscribe(result => {  
+          console.log(result);  
           if(result.approved ){
               this.userService.isAdmin = result.admin;
-              this.userService.canWriteReference = result.can_write_reference
+              this.userService.canWrite(result.can_write_reference)
               if(result.admin){
                 this.router.navigate(["/admin"]);
               }

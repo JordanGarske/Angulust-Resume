@@ -3,8 +3,9 @@ use rocket::http::{CookieJar, Cookie};
 pub fn bake_cookie(jar: &CookieJar<'_>, key: String  , id : String ){
     let cookie = Cookie::build((key, id.to_string()))
                 .http_only(true)
-                .secure(true);
-    jar.add_private(cookie.finish());
+                .secure(true)
+                .build();
+    jar.add_private(cookie);
 }
 pub fn cookie_thief(jar: &CookieJar<'_>) -> i32{
     match jar.get_private("user_id"){

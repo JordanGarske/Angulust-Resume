@@ -1,0 +1,12 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Job Reference Form</h2>
+  
+    <form>
+      <div class="form-group">
+        <label for="referenceText">Reference Text</label>
+        <textarea class="form-control" id="referenceText" rows="5" placeholder="Enter reference text" [(ngModel)]="userData.elucidation" required></textarea>
+      </div>
+  
+      <button type="submit" (click)="submitWriting()" class="btn btn-primary">Submit Reference</button>
+    </form>
+  </div>

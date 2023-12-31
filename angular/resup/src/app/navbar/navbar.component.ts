@@ -8,9 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  canWriteRef:boolean = false;
   constructor(private userService: UserService, private router: Router){}
-  roadmap_button(): void {
-
+  ngOnInit(): void{
+      this.canWriteRef = this.userService.getCanWriteReference();
+  }
+  roadmapButton(): void {
     this.router.navigate(["/home/roadmap"]);
-}
+  }
+  referenceButton(): void {
+    this.router.navigate(["/home/reference"]);
+  }
 }

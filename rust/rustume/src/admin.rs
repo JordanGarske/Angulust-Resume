@@ -6,7 +6,7 @@ use rocket::request::{Outcome, Request, FromRequest};
 use diesel::{QueryDsl,RunQueryDsl, result::Error};
 //rustume crates
 use crate::Db;
-use crate::models::user::AdminUser;
+use crate::models::client::AdminUser;
 use crate::schema::client::{self};
 use crate::authentication::cookie::cookie_thief;
 pub(crate) mod admin_user_access;

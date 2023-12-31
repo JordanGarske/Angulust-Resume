@@ -5,9 +5,12 @@ use rocket_sync_db_pools::database;
 mod schema;
 //models for all the table for the database
 mod models;
-//model for all the autehntication like loging in,cookies, and sign up
+// for all the autehntication like loging in,cookies, and sign up
 mod authentication;
+//routes for special admin privillibes
 mod admin;
+//client routes for user only privilliges
+mod client_access;
 #[database("my_db")]
 pub struct Db(diesel::PgConnection);
 
@@ -16,6 +19,7 @@ fn rocket() -> _ {
     rocket::build()
     .attach(Db::fairing())
     .mount("/admin", admin::routes())
+    .mount("/client_access", client_access::routes())
     .mount("/", authentication::routes())
     .mount("/", FileServer::from(relative!("static/resup")))
 }

@@ -1,9 +1,9 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
-    client (client_id) {
-        client_id -> Int4,
-        personal_review_id -> Nullable<Int4>,
+    client (id) {
+        id -> Int4,
+        resume_reference_id -> Nullable<Int4>,
         #[max_length = 20]
         client_password -> Varchar,
         #[max_length = 100]
@@ -45,8 +45,8 @@ diesel::table! {
 }
 
 diesel::table! {
-    personal_reference (personal_review_id) {
-        personal_review_id -> Int4,
+    resume_reference (id) {
+        id -> Int4,
         client_id -> Int4,
         #[max_length = 2000]
         elucidation -> Varchar,
@@ -54,8 +54,8 @@ diesel::table! {
 }
 
 diesel::table! {
-    room (room_id) {
-        room_id -> Int4,
+    room (id) {
+        id -> Int4,
         #[max_length = 50]
         title -> Varchar,
         #[max_length = 500]
@@ -63,6 +63,7 @@ diesel::table! {
     }
 }
 
+diesel::joinable!(client -> resume_reference (resume_reference_id));
 diesel::joinable!(client_to_room -> client (client_id));
 diesel::joinable!(client_to_room -> room (room_id));
 diesel::joinable!(message -> client (client_id));
@@ -72,6 +73,6 @@ diesel::allow_tables_to_appear_in_same_query!(
     client,
     client_to_room,
     message,
-    personal_reference,
+    resume_reference,
     room,
 );

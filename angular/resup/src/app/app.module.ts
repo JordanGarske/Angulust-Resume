@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RoadMapComponent } from './navbar-folder/road-map/road-map.component';
 import { AdminComponent } from './admin/admin.component';
+import { ReferenceFormComponent } from './navbar-folder/reference-form/reference-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     NavbarComponent,
     RoadMapComponent,
-    AdminComponent
+    AdminComponent,
+    ReferenceFormComponent
   ],
   imports: [
     BrowserModule,

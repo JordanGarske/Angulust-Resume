@@ -22,7 +22,7 @@ export class SignupComponent {
   constructor(private userService: UserService, private router: Router){}
   onSubmit() {
     if(this.userData.phone_number == ''){
-      this.userData.phone_number = undefined;
+      this.userData.phone_number = null;
     }
     this.userService.addNewUser(this.userData).subscribe(user => this.createdUser = user );
   }

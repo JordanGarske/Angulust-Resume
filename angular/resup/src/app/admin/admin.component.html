@@ -11,16 +11,16 @@
         <div class="card flex-row">
           
           <div class="card-body">
-            <p class="card-text">{{user.client_id}}</p>
+            <p class="card-text">{{user.id}}</p>
             <p class="card-text">{{user.first_name}}</p>
             <p class="card-text">{{user.last_name}}</p>
             <p class="card-text">{{user.email}}</p>
             <p class="card-text">{{user.admin_privilege}}</p>
           </div>
-          <div class="card-footer text-right" (click)="deleteUserButton(user.client_id)">
+          <div class="card-footer text-right" (click)="deleteUserButton(user.id)">
             <button type="button" class="btn primary">Delete</button>
           </div>
-          <div class="card-footer text-right" (click)="referencePermissionButton(user.client_id)">
+          <div class="card-footer text-right" (click)="referencePermissionButton(user.id)">
             <button type="button" class="btn btn-danger">make reference</button>
           </div>
         </div>
