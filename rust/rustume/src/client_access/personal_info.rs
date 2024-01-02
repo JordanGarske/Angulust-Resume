@@ -1,4 +1,5 @@
-use crate::{models::personal_reference::{ResumeReference, InsertPersonalReference as IPF}, schema::resume_reference as rf_Table};
+use crate::{models::{personal_reference::{ResumeReference, InsertPersonalReference as IPF}, client_to_reference::ClientReference}, schema::resume_reference as rf_Table};
+use crate::models::client_to_reference;
 use rocket::{serde::json::Json, http::CookieJar};
 use diesel::{RunQueryDsl, QueryDsl, SelectableHelper, ExpressionMethods};
 use serde::Serialize;
@@ -17,33 +18,12 @@ pub async fn gather_reviews(  conn:Db) -> Json<Vec<ClientReference>>{
     let referecnes= client_result.iter()
     .map(|(cli,refen)| 
     {
-        ClientReference {
-            id:refen.id,
-            email: cli.email.to_string(),
-            first_name:cli.first_name.to_string(),
-            last_name: cli.last_name.to_string(),
-            phone_number: cli.phone_number.clone(),
-            profession: cli.profession.to_string(),
-            company: cli.company.to_string(),
-            elucidation: refen.elucidation.to_string(),
-
-        }
+         ClientReference::clone_new(cli, refen)
     }).collect();
     Json(referecnes)
 }
 
 
-#[derive(Serialize)]
-pub struct ClientReference {
-    pub id: i32,
-    pub email: String,
-    pub first_name: String,
-    pub last_name: String,
-    pub phone_number: Option<String>,
-    pub profession: String,
-    pub company: String,
-    pub elucidation: String,
-}
 
 #[post("/write_my_review",format = "json", data="<review>")]
 pub async fn login_user( review: Json<IPF>,conn:Db) -> Json<bool>{

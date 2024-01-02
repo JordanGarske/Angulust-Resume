@@ -1,0 +1,70 @@
+/* */
+.containers{
+    display: flex;    
+    background-color: #161616;
+    .information:nth-child(1) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 10%;
+      }
+    .information:nth-child(2) {
+        flex: 60%;
+      }
+      
+      .information:nth-child(3) {
+        flex: 20%;
+      }
+    div{
+        color: aliceblue;
+       
+        div{
+            margin: 4px;
+            background-color: #161616;
+            p{
+              color:   #4EB981;
+            }
+        }
+        .work-knowledge{
+            color:   #69e7a6;
+        }
+    }
+
+   
+}
+li{
+    color:   #acacac;
+}
+p{
+    color: aliceblue;
+}
+h1{
+    color:yellow;
+}
+h4{
+    color:   #69e7a6;
+}
+h6{
+    color: aliceblue;
+    font-size: 12px;
+    
+}
+#spacer{
+    background-color: rgb(47, 137, 92);
+    height: 1px;
+    width: 100%;
+}
+.information 
+ 
+  /* Hover effect with shadow */
+img {
+    box-shadow: 0 0 10px rgba(66, 62, 62, 0.9); /* Adjust the shadow values as needed */
+  }
+i {
+    color:   #4EB981;
+}
+footer{
+    height: 100%;
+    width: 100%;
+    background-color: #161616;
+}

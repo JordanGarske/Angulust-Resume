@@ -23,17 +23,20 @@ didUpdate:string = '';
     this.userService.deleteUser(user).subscribe()
   }
   referencePermissionButton(user: number){
-    this.userService.referenceFormPermission(user).subscribe(result=>
-        this.updateResult(result)
-
+    this.didUpdate = '';
+    this.userService.referenceFormPermission(user).subscribe(result=>{
+        this.updateResult(result, user)
+        
+    }
       );
   }
-  updateResult(result: boolean):void{
+  updateResult(result: boolean, id: number ):void{
       if(result){
-        this.didUpdate = "changes where made"
+        this.didUpdate = "succes"
+        this.users.filter(user => user.id !== id )
       }
       else{
-        this.didUpdate = "did not make change"
+        this.didUpdate = "fail"
       }
   }
 }

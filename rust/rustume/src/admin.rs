@@ -39,7 +39,7 @@ impl<'r> FromRequest<'r> for Admin<'r> {
             client::table.find(id).select(AdminUser::as_select()).first(temp_conn)
         })
         .await;
-
+        print!("{}",id);
         match item {
             Ok(key) if key.admin_privilege == true => Outcome::Success(Admin("is a admin")),
             Err(_) => Outcome::Error((Status::BadRequest, ApiKeyError::Invalid)),

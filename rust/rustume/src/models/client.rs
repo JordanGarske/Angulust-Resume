@@ -39,7 +39,7 @@ impl  UserLoginInfo {
         client::table::filter(client::table, client_indfication).select(Client::as_select()).first::<Client>(conn)
     }
 }
-
+//
 #[derive(Serialize, Queryable, Selectable)]
 #[diesel(table_name = client)]
 pub struct AdminUser{

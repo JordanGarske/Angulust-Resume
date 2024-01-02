@@ -1,11 +1,6 @@
 -- Employers and teacher reviews
 
 -- Table for resume references
-CREATE TABLE resume_reference (
-  id SERIAL PRIMARY KEY,
-  client_id INT NOT NULL,
-  elucidation VARCHAR(2000) NOT NULL
-);
 
 -- Table for clients
 CREATE TABLE client (
