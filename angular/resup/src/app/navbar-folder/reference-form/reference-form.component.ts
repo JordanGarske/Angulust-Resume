@@ -14,6 +14,5 @@ export class ReferenceFormComponent {
   submitWriting(){
     this.userData.client_id = this.userService.referenceID
     this.userService.writeReview(this.userData).subscribe( );
-    this.router.navigate(["/home"]);
   }
 }

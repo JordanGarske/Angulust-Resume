@@ -1,62 +1,14 @@
-<!-- <app-navbar></app-navbar> -->
-<!-- resume intrudcation -->
-
-<!-- <div class="containers"> -->
-<!-- page level indicater-->
-
   <!-- Your HTML content -->
-  <div class="qualificationResumeContainer">
-    <div class="qualificationResumeContainerBox">
-      <div><i class="fa-solid fa-house"></i></div>
-      <div><i class="fa-solid fa-paperclip"></i></div>
-    </div>
 
-    <div class="qualificationResumeContainerBox">
-        <!-- Content for Box 2 goes here -->
-        <img src="assets/R.jpg" alt="Description of the image" style="max-width: 100%; height: 100%;">
-    </div>
+  <div class="qualificationResumeContainer  ">
 
     <div class="qualificationResumeContainerBox">
       <app-resume-qualification></app-resume-qualification>
     </div>
-
     <div class="qualificationResumeContainerBox">
-      <div *ngFor="let ref of references">
-        <div class="card flex-row">
-          
-          <div class="card-body">
-            <p class="card-text">{{ref.first_name}}</p>
-            <p class="card-text">{{ref.last_name}}</p>
-            <p class="card-text">{{ref.elucidation}}</p>
-          </div>
-        </div>
-      </div>
+        <app-projects></app-projects>
+       <app-references></app-references>
     </div>
 </div>
-<!-- <div class="qualificationResumeContainer">
-  <div
-    class="qualificationResumeContainerBox"
-    style="word-wrap: break-word"
-    id="sideBarIndicated"
-  >
-    <div><i class="fa-solid fa-house"></i></div>
-    <div><i class="fa-solid fa-paperclip"></i></div>
-  </div>
-  <div class="qualificationResumeContainerBox">
-    <div></div>
-    <div></div>
-    </div>
-</div> -->
 
-<!-- <div>  -->
-<!--self prottrait -->
-<!-- <div class="information">
-      <img src="assets/R.jpg" alt="Description of the image" style="max-width: 100%; height: 100%;">
-      <app-resume-qualification></app-resume-qualification>
 
-    </div> -->
-<!--information about me -->
-
-<!-- </div>
-
-</div> -->

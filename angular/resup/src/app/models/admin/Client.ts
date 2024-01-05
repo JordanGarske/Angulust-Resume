@@ -1,9 +1,17 @@
-export interface CredentialApproval {
-    approved: boolean;
-    admin: boolean;
-    can_write_reference:number|null
-  }
-  export interface User  {
+export interface ClientReview{
+    id: number;
+    review_id: number;
+    first_name: string;
+    last_name: string;
+    client_password: string;
+    email: string;
+    admin_privilege: boolean;
+    phone_number: string | null; // Adjusted based on SQL definition
+    profession: string;
+    company: string;
+    elucidation: string;
+}
+export interface Client  {
     id: number;
     first_name: string;
     last_name: string;
@@ -14,20 +22,5 @@ export interface CredentialApproval {
     profession: string;
     company: string;
   }
-  
-  export interface UserSignUp {
-    client_password: string;
-    email: string;
-    admin_privilege: boolean;
-    first_name: string;
-    last_name: string;
-    phone_number: string | null; // Adjusted based on SQL definition
-    profession: string;
-    company: string;
-  }
-  
-  export interface UserLogin {
-    email: string;
-    client_password: string;
-  }
+
   

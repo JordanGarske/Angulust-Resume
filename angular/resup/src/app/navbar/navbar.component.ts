@@ -13,10 +13,4 @@ export class NavbarComponent {
   ngOnInit(): void{
       this.canWriteRef = this.userService.getCanWriteReference();
   }
-  roadmapButton(): void {
-    this.router.navigate(["/home/roadmap"]);
-  }
-  referenceButton(): void {
-    this.router.navigate(["/home/reference"]);
-  }
 }

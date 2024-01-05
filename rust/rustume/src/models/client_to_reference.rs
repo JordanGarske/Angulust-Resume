@@ -1,9 +1,12 @@
-use serde::Serialize;
-use crate::models::{client::Client,personal_reference::ResumeReference};
-
+use rocket::figment::value;
+use serde::{Serialize, Deserialize};
+use crate::schema::{clients,reviews};
+use crate::models::{client::Client,reviews::Review};
+use diesel::{Queryable, Insertable, Selectable, ExpressionMethods, BoolExpressionMethods,RunQueryDsl, QueryDsl, PgConnection, SelectableHelper, Identifiable, associations::Associations };
 #[derive(Serialize)]
-pub struct ClientReference {
+pub struct ClientReviews {
     pub id: i32,
+    pub review_id: i32,
     pub email: String,
     pub first_name: String,
     pub last_name: String,
@@ -12,17 +15,40 @@ pub struct ClientReference {
     pub company: String,
     pub elucidation: String,
 }
-impl  ClientReference{
-    pub fn clone_new(cli:&Client, per_ref: &ResumeReference ) -> ClientReference{
-        ClientReference {
-            id:per_ref.id,
-            email: cli.email.to_string(),
-            first_name:cli.first_name.to_string(),
-            last_name: cli.last_name.to_string(),
-            phone_number: cli.phone_number.clone(),
-            profession: cli.profession.to_string(),
-            company: cli.company.to_string(),
-            elucidation: per_ref.elucidation.to_string(),
+impl  ClientReviews{
+    pub fn new(cli:Client, per_ref: Review ) -> ClientReviews{
+        ClientReviews {
+            id: cli.id,
+            review_id: per_ref.id,
+            email: cli.email,
+            first_name:cli.first_name,
+            last_name: cli.last_name,
+            phone_number: cli.phone_number,
+            profession: cli.profession,
+            company: cli.company,
+            elucidation: per_ref.elucidation,
+
+        }
+    }
+    pub fn new_JOIN(cli:Client, per_ref: Option<Review> ) -> ClientReviews{
+        let rev = ClientReviews::review_match(per_ref);
+        ClientReviews {
+            id:cli.id,
+            review_id: rev.id,
+            email: cli.email,
+            first_name:cli.first_name,
+            last_name: cli.last_name,
+            phone_number: cli.phone_number,
+            profession: cli.profession,
+            company: cli.company,
+            elucidation: rev.elucidation,
+
+        }
+    }
+    fn review_match(per_ref: Option<Review>) -> Review{
+        match per_ref{
+            Some(value) => return value,
+            None => return Review{id: -1, client_id: -1, elucidation:"".to_string()}
 
         }
     }

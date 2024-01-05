@@ -15,11 +15,11 @@
               <label for="email" class="form-label">Email</label>
               <input class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="userData.email" type="email" required>
             </div>
-            <button class="btn btn-primary" type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!signupForm.form.valid">login</button>
           </form>
         </div>
         <div class="card-footer">
-          <button class="btn btn-secondary" (click)="signup()">login</button>
+          <button class="btn btn-secondary" (click)="signup()">Sign Up</button>
         </div>
       </div>
     </div>

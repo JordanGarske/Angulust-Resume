@@ -1,5 +1,5 @@
 use rocket::{http::CookieJar, serde::json::Json};
-use crate::{Db, models::{client::UserLoginInfo, credential::CredentialApproval}};
+use crate::{Db, models::{client::UserLoginInfo, credential::CredentialApproval, reviews::{Review, InsertReview}}};
 use crate::authentication::cookie::bake_cookie;
 //deccription: logs user into the website
 //return: gives back a cookie and user Json back to the client
@@ -15,8 +15,20 @@ pub async fn login_user(user:Json<UserLoginInfo>, conn:Db,  jar: &CookieJar<'_>)
     {
         Ok(value) => 
         {
-            bake_cookie(jar, "user_id".to_string(), value.id.to_string());
-            Json(CredentialApproval::new(true,value.admin_privilege, value.resume_reference_id))
+           let id = value.id;
+            let admin = value.admin_privilege;
+            let review_result = conn.run(move |temp_conn| {
+                InsertReview::get_client_review(value,temp_conn)
+            }).await;
+            match review_result{
+                Ok(review) => {
+                    bake_cookie(jar, "user_id".to_string(), id.to_string());
+                    return Json(CredentialApproval::new(true, admin,Some(review.id) ))}  ,
+                Err(_) => {
+                    bake_cookie(jar, "user_id".to_string(), id.to_string());
+                    return Json(CredentialApproval::new(true, admin,None ))  } 
+            }
+            
             
         },
         Err(_) => return Json(CredentialApproval::new(false, false,None ))               

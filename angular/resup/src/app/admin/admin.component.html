@@ -1,31 +1,38 @@
 <div class="row">
-    <!-- First div taking half the screen -->
+    <!-- logs -->
     <div class="col-md-6">
-      <!-- Content for the first div goes here -->
+      <div *ngFor="let user of clients">
+
+        <div class="card flex-row">
+          <div class="card-body">
+            <p class="card-text">{{user.id}}:  {{user.company}} - {{user.profession}}</p>
+            <p class="card-text">{{user.first_name}} - {{user.last_name}}</p>
+            <p class="card-text">{{user.email}}</p>
+          </div>
+          <div class = "card-footer text-right" (click)="addReviewButton(user)">
+            <button type="button" class="btn btn-danger">add reference</button>
+          </div>
+        </div>
+      </div>
     </div>
   
     <!-- Second div taking half the screen -->
     <div class="col-md-6">
       <h5 >{{didUpdate}}</h5>9
-      <div *ngFor="let user of users">
+      <div *ngFor="let ref of references">
 
         <div class="card flex-row">
-          
           <div class="card-body">
-            <p class="card-text">{{user.id}}</p>
-            <p class="card-text">{{user.first_name}}</p>
-            <p class="card-text">{{user.last_name}}</p>
-            <p class="card-text">{{user.email}}</p>
-            <p class="card-text">{{user.admin_privilege}}</p>
+            <p class="card-text">{{ref.id}} - {{ref.review_id}}</p>
+            <p class="card-text">{{ref.first_name}} - {{ref.last_name}}</p>
+            <p class="card-text">{{ref.elucidation}}</p>
           </div>
-          <div class="card-footer text-right" (click)="deleteUserButton(user.id)">
-            <button type="button" class="btn primary">Delete</button>
-          </div>
-          <div class="card-footer text-right" (click)="referencePermissionButton(user.id)">
-            <button type="button" class="btn btn-danger">make reference</button>
+          <div class = "card-footer text-right" (click)="deleteReviewButton(ref)">
+            <button type="button" class="btn btn-danger">delete reference</button>
           </div>
         </div>
       </div>
     </div>
+
   </div>
   

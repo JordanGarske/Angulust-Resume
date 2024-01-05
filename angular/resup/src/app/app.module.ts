@@ -16,6 +16,8 @@ import { RoadMapComponent } from './navbar-folder/road-map/road-map.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReferenceFormComponent } from './navbar-folder/reference-form/reference-form.component';
 import { ResumeQualificationComponent } from './navbar-folder/home/resume-qualification/resume-qualification.component';
+import { ProjectsComponent } from './navbar-folder/projects/projects.component';
+import { ReferencesComponent } from './navbar-folder/home/references/references.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,9 @@ import { ResumeQualificationComponent } from './navbar-folder/home/resume-qualif
     RoadMapComponent,
     AdminComponent,
     ReferenceFormComponent,
-    ResumeQualificationComponent
+    ResumeQualificationComponent,
+    ProjectsComponent,
+    ReferencesComponent
   ],
   imports: [
     BrowserModule,

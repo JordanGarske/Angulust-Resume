@@ -1,6 +1,5 @@
 export interface User {
   id: number;
-  resume_reference_id:number;
   first_name: string;
   last_name: string;
   client_password: string;

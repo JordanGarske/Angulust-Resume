@@ -1,9 +1,19 @@
 // @generated automatically by Diesel CLI.
 
 diesel::table! {
-    client (id) {
+    client_to_room (id) {
         id -> Int4,
-        resume_reference_id -> Nullable<Int4>,
+        client_id -> Int4,
+        room_id -> Int4,
+        delete_privilege -> Bool,
+        edit_privilege -> Bool,
+        write_privilege -> Bool,
+    }
+}
+
+diesel::table! {
+    clients (id) {
+        id -> Int4,
         #[max_length = 20]
         client_password -> Varchar,
         #[max_length = 100]
@@ -23,29 +33,18 @@ diesel::table! {
 }
 
 diesel::table! {
-    client_to_room (client_room_id) {
-        client_room_id -> Int4,
-        client_id -> Int4,
-        room_id -> Int4,
-        delete_privilege -> Bool,
-        edit_privilege -> Bool,
-        write_privilege -> Bool,
-    }
-}
-
-diesel::table! {
-    message (message_id) {
-        message_id -> Int4,
+    messages (id) {
+        id -> Int4,
         client_room_id -> Int4,
         client_id -> Int4,
         room_id -> Int4,
         #[max_length = 2000]
-        client_message -> Varchar,
+        cli_message -> Varchar,
     }
 }
 
 diesel::table! {
-    resume_reference (id) {
+    reviews (id) {
         id -> Int4,
         client_id -> Int4,
         #[max_length = 2000]
@@ -54,7 +53,7 @@ diesel::table! {
 }
 
 diesel::table! {
-    room (id) {
+    rooms (id) {
         id -> Int4,
         #[max_length = 50]
         title -> Varchar,
@@ -63,16 +62,16 @@ diesel::table! {
     }
 }
 
-diesel::joinable!(client -> resume_reference (resume_reference_id));
-diesel::joinable!(client_to_room -> client (client_id));
-diesel::joinable!(client_to_room -> room (room_id));
-diesel::joinable!(message -> client (client_id));
-diesel::joinable!(message -> room (room_id));
+diesel::joinable!(client_to_room -> clients (client_id));
+diesel::joinable!(client_to_room -> rooms (room_id));
+diesel::joinable!(messages -> clients (client_id));
+diesel::joinable!(messages -> rooms (room_id));
+diesel::joinable!(reviews -> clients (client_id));
 
 diesel::allow_tables_to_appear_in_same_query!(
-    client,
     client_to_room,
-    message,
-    resume_reference,
-    room,
+    clients,
+    messages,
+    reviews,
+    rooms,
 );

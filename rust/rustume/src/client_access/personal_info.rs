@@ -1,24 +1,24 @@
-use crate::{models::{personal_reference::{ResumeReference, InsertPersonalReference as IPF}, client_to_reference::ClientReference}, schema::resume_reference as rf_Table};
+use crate::{models::{reviews::{Review, InsertReview as IPF}, client_to_reference::ClientReviews}, schema::reviews as rf_Table};
 use crate::models::client_to_reference;
 use rocket::{serde::json::Json, http::CookieJar};
 use diesel::{RunQueryDsl, QueryDsl, SelectableHelper, ExpressionMethods};
 use serde::Serialize;
-use crate::{Db, schema::client, models::client::Client};
+use crate::{Db, schema::clients, models::client::Client};
 //alias 
 #[get("/gather_reviews")]
-pub async fn gather_reviews(  conn:Db) -> Json<Vec<ClientReference>>{
-    let client_result: Vec<(Client, ResumeReference)>= conn.run(move |c|
+pub async fn gather_reviews(  conn:Db) -> Json<Vec<ClientReviews>>{
+    let client_result: Vec<(Client, Review)>= conn.run(move |c|
         {  
             rf_Table::table
-            .inner_join(client::table)
-            .select((Client::as_select(), ResumeReference::as_select()) )
-            .load::<(Client, ResumeReference)>(c)
+            .inner_join(clients::table)
+            .select((Client::as_select(), Review::as_select()) )
+            .load::<(Client, Review)>(c)
         }
        ).await.unwrap();
-    let referecnes= client_result.iter()
+    let referecnes= client_result.into_iter()
     .map(|(cli,refen)| 
     {
-         ClientReference::clone_new(cli, refen)
+        ClientReviews::new(cli, refen)
     }).collect();
     Json(referecnes)
 }

@@ -7,15 +7,17 @@ use diesel::{QueryDsl,RunQueryDsl, result::Error};
 //rustume crates
 use crate::Db;
 use crate::models::client::AdminUser;
-use crate::schema::client::{self};
+use crate::schema::clients::{self};
 use crate::authentication::cookie::cookie_thief;
-pub(crate) mod admin_user_access;
-use crate::admin::admin_user_access::user::{get_users,give_reference_access};
+pub(crate) mod user_routes;
+use crate::admin::user_routes::user::{give_reference_access, get_clients};
+pub(crate) mod review_routes;
+use crate::admin::review_routes::review::{delete_review,get_user_reviews};
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //routing for rocket
 
 pub fn routes() -> Vec<rocket::Route> {
-    routes![get_users,give_reference_access]
+    routes![get_user_reviews,get_clients,give_reference_access,delete_review]
 }
 pub struct Admin<'r>(&'r str);
 
@@ -36,7 +38,7 @@ impl<'r> FromRequest<'r> for Admin<'r> {
         let id = cookie_thief(req.cookies());
         let item:Result<AdminUser, Error>  = conn.run(move |temp_conn| {
             //find user  information
-            client::table.find(id).select(AdminUser::as_select()).first(temp_conn)
+            clients::table.find(id).select(AdminUser::as_select()).first(temp_conn)
         })
         .await;
         print!("{}",id);
