@@ -4,8 +4,8 @@
 pub(crate) mod login;
 pub(crate) mod cookie;
 pub(crate) mod signup;
-use crate::authentication::signup::create_user;
-use crate::authentication::login::login_user;
+use crate::authentications::authentication::signup::create_user;
+use crate::authentications::authentication::login::login_user;
 //
 pub fn routes() -> Vec<rocket::Route> {
     routes![create_user, login_user]

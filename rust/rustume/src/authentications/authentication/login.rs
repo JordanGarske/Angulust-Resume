@@ -1,6 +1,6 @@
 use rocket::{http::CookieJar, serde::json::Json};
 use crate::{Db, models::{client::UserLoginInfo, credential::CredentialApproval, reviews::{Review, InsertReview}}};
-use crate::authentication::cookie::bake_cookie;
+use crate::authentications::authentication::cookie::bake_cookie;
 //deccription: logs user into the website
 //return: gives back a cookie and user Json back to the client
 #[post("/login",format = "json", data="<user>")]

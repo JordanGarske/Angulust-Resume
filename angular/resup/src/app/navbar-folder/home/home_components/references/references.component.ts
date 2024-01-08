@@ -19,6 +19,7 @@ export class ReferencesComponent implements OnInit {
     profession: 'Software Engineer',
     company: 'Tech Co.',
     elucidation: 'John is a highly skilled software engineer with a strong problem-solving ability.',
+    card_front: 'front',
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export class ReferencesComponent implements OnInit {
     profession: 'Data Scientist',
     company: 'Data Analytics Inc.',
     elucidation: 'Jane has a deep understanding of data science and is a valuable team member.',
+    card_front: 'front',
   },
   {
     id: 3,
@@ -38,10 +40,11 @@ export class ReferencesComponent implements OnInit {
     profession: 'Project Manager',
     company: 'Project Management Co.',
     elucidation: 'Bob is an experienced project manager who excels in leading teams to success.',
+    card_front: 'front',
   },]
   leftReferences: ClientReference[] = [];
   rightReferences: ClientReference[] = [];
-
+  isFlipped = 'front';
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
@@ -62,12 +65,15 @@ export class ReferencesComponent implements OnInit {
 
     if (this.references.length % 2 === 0) {
       for (let i = 0; i < this.references.length; i += 2) {
+        this.references[i].card_front = 'front'
         this.rightReferences.push(this.references[i]);
         this.leftReferences.push(this.references[i + 1]);
       }
     } else {
       for (let i = 0; i < this.references.length - 1; i += 2) {
+        this.references[i].card_front = 'front'
         this.rightReferences.push(this.references[i]);
+        this.references[i+1].card_front = 'front'
         this.leftReferences.push(this.references[i + 1]);
       }
 
@@ -79,9 +85,14 @@ export class ReferencesComponent implements OnInit {
         last_name: '',
         profession: '',
         company: '',
-        elucidation: ''
+        elucidation: '',
+        card_front: 'front',
       };
       this.leftReferences.push(x);
     }
+  }
+  toggleFlip(cli_ref: ClientReference){
+    console.log(this.isFlipped);
+     cli_ref.card_front = (cli_ref.card_front === 'front') ? 'back' : 'front';
   }
 }

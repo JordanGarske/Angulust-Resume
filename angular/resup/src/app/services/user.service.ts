@@ -32,18 +32,6 @@ export class UserService {
   getReference(): Observable<ClientReference[]>{
     return this.http.get<ClientReference[]>(`${this.urlUser}client_access/gather_reviews`);
   }
-  getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlUser}admin/get_users`);
-  }
-  getLogs(user: User): Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlUser}admin/get_logs`);
-  }
-  deleteUser(userID: number): Observable<boolean>{
-    return this.http.post<boolean>(`${this.urlUser}admin/delete_user`, userID, this.httpOptions);
-  }
-  referenceFormPermission(userID:number):Observable<boolean>{
-    return this.http.get<boolean>(`${this.urlUser}admin/reference_permission_access/${userID}`);
-  }  
   //helper 
   canWrite(isItANumber:number|null):void{
     if(isItANumber === null){

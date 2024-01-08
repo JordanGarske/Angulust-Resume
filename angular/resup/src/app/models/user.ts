@@ -8,6 +8,7 @@ export interface User {
   phone_number: string | null; // Adjusted based on SQL definition
   profession: string;
   company: string;
+
 }
 
 export interface UserSignUp {

@@ -1,0 +1,39 @@
+<div id="spacer"></div>
+<h1>References: click for contact info</h1>
+
+<div *ngFor="let ref of leftReferences; let i = index" class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card flex-row h-100 color btn btn-primary" >
+        <div class="card-body " *ngIf="  ref.card_front === 'front'" (click)="toggleFlip(ref)" >
+          <p class="card-text">{{ref.first_name}} {{ref.last_name}}</p>
+          <p class="card-text">{{ref.company}}  {{ ref.profession}}</p>
+          <p class="card-text">{{ref.elucidation}}</p>
+
+        </div>
+        <div class="card-body " *ngIf="ref.card_front === 'back'" (click)="toggleFlip(ref)" >
+          <p class="card-text">{{ref.email}} </p>
+          <p class="card-text">{{ref.phone_number}} </p>
+
+        </div>
+      </div>
+    </div>
+    
+    <!-- Ensure there's a matching right reference before attempting to display -->
+    <div *ngIf="rightReferences[i]" class="col-md-6">
+      <div class="card flex-row h-100 color btn btn-primary" >
+        <div class="card-body " *ngIf="  rightReferences[i].card_front === 'front'" (click)="toggleFlip(rightReferences[i])" >
+          <p class="card-text">{{rightReferences[i].first_name}} {{rightReferences[i].last_name}}</p>
+          <p class="card-text">{{rightReferences[i].company}} {{rightReferences[i].profession}}</p>
+          <p class="card-text">{{rightReferences[i].elucidation}}</p>
+        </div>
+        <div class="card-body " *ngIf="rightReferences[i].card_front === 'back'" (click)="toggleFlip(rightReferences[i])" >
+
+          <p class="card-text"></p>
+          <p class="card-text">{{rightReferences[i].email}}  </p>
+          <p class="card-text">{{ rightReferences[i].phone_number}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

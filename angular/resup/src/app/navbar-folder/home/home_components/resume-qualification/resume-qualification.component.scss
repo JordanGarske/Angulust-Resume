@@ -41,9 +41,13 @@ footer {
 .spacing-margin {
   margin-right: 15px;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .hover-box:hover {
   border: 1px solid #4eb981;
+  transform: scale(1.5);
+  z-index: 2;
   /* Add a border style and width */
 }
+

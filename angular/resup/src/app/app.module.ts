@@ -15,9 +15,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RoadMapComponent } from './navbar-folder/road-map/road-map.component';
 import { AdminComponent } from './admin/admin.component';
 import { ReferenceFormComponent } from './navbar-folder/reference-form/reference-form.component';
-import { ResumeQualificationComponent } from './navbar-folder/home/resume-qualification/resume-qualification.component';
-import { ProjectsComponent } from './navbar-folder/projects/projects.component';
-import { ReferencesComponent } from './navbar-folder/home/references/references.component';
+import { ResumeQualificationComponent } from './navbar-folder/home/home_components/resume-qualification/resume-qualification.component';
+import { ProjectsComponent } from './navbar-folder/home/home_components/projects/projects.component';
+import { ReferencesComponent } from './navbar-folder/home/home_components/references/references.component';
 @NgModule({
   declarations: [
     AppComponent,

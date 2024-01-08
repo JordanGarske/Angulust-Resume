@@ -8,11 +8,9 @@ use diesel::{QueryDsl,RunQueryDsl, result::Error};
 use crate::Db;
 use crate::models::client::AdminUser;
 use crate::schema::clients::{self};
-use crate::authentication::cookie::cookie_thief;
-pub(crate) mod user_routes;
-use crate::admin::user_routes::user::{give_reference_access, get_clients};
-pub(crate) mod review_routes;
-use crate::admin::review_routes::review::{delete_review,get_user_reviews};
+use crate::authentications::authentication::cookie::cookie_thief;
+use crate::admin_access::user_routes::user::{give_reference_access, get_clients};
+use crate::admin_access::review_routes::review::{delete_review,get_user_reviews};
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //routing for rocket
 

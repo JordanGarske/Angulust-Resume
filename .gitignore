@@ -11,4 +11,6 @@ package-lock.json
 password.txt
 rust/rustume/static/resup/
 password.txt
-
+Pem.pem
+rust/rustume/.env
+rust/rustume/Rocket.toml

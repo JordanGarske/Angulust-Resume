@@ -7,6 +7,7 @@ export interface ClientReference {
     profession: string;
     company: string;
     elucidation: string;
+    card_front: 'front'| 'back';
   }
   export interface ResumeReference {
     client_id: number;
