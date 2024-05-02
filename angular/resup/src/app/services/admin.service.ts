@@ -8,7 +8,7 @@ import { Review } from '../models/admin/Review';
   providedIn: 'root'
 })
 export class AdminService {
-  private  urlUser = "http://127.0.0.1:8000/admin/";
+  private  urlUser = "https://jordan-garske.com/admin/";
   public isAdmin:boolean = false;
   private canWriteReference:boolean=  false;
   public referenceID:number = -1;

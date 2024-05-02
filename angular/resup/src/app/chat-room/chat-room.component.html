@@ -1,0 +1,20 @@
+<main class="container mt-5">
+    <div id="content">
+      <div id="messages">
+        <div class="message card mb-2" *ngFor="let message of messages">
+          <div class="card-body">
+            <h5 class="card-title">{{ message.username }}</h5>
+            <p class="card-text">{{ message.message }}</p>
+          </div>
+        </div>
+      </div>
+      <form id="new-message" class="card" (submit)="sendMessage()">
+        <div class="card-body">
+          <div class="form-group">
+            <input type="text" name="message" id="message" class="form-control" autocomplete="off" placeholder="Send a message..." autofocus [(ngModel)]="newMessage.message">
+          </div>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
+    </div>
+  </main>

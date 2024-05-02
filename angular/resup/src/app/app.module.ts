@@ -18,6 +18,8 @@ import { ReferenceFormComponent } from './navbar-folder/reference-form/reference
 import { ResumeQualificationComponent } from './navbar-folder/home/home_components/resume-qualification/resume-qualification.component';
 import { ProjectsComponent } from './navbar-folder/home/home_components/projects/projects.component';
 import { ReferencesComponent } from './navbar-folder/home/home_components/references/references.component';
+import { ChatRoomComponent } from './chat-room/chat-room.component';
+import { NightSkyComponent } from './navbar-folder/home/home_components/night-sky/night-sky.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { ReferencesComponent } from './navbar-folder/home/home_components/refere
     ReferenceFormComponent,
     ResumeQualificationComponent,
     ProjectsComponent,
-    ReferencesComponent
+    ReferencesComponent,
+    ChatRoomComponent,
+    NightSkyComponent
   ],
   imports: [
     BrowserModule,

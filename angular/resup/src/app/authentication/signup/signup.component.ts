@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
+  isSignUp:boolean = false;
    userData: UserSignUp= {
      first_name: '',
      last_name: '',
@@ -24,7 +25,11 @@ export class SignupComponent {
     if(this.userData.phone_number == ''){
       this.userData.phone_number = null;
     }
-    this.userService.addNewUser(this.userData).subscribe(user => this.createdUser = user );
+    this.userService.addNewUser(this.userData).subscribe(didWork =>{
+      if(didWork){
+        this.isSignUp = true;
+      }
+    } );
   }
   signup(): void {
     

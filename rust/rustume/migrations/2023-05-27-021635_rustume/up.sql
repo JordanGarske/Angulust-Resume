@@ -39,7 +39,6 @@ CREATE TABLE client_to_room (
 
 CREATE TABLE messages (
   id SERIAL PRIMARY KEY,
-  client_room_id INT NOT NULL,
   client_id INT NOT NULL,
   room_id INT NOT NULL,
   cli_message VARCHAR(2000) NOT NULL,

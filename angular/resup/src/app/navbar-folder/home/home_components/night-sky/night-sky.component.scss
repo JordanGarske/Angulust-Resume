@@ -1,0 +1,111 @@
+.scene{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#111425,#3751e0);
+    background-attachment: fixed;
+    overflow: hidden;
+  }
+  .star{ 
+    position: absolute;
+    left: 0%;
+    top: 2%;
+    height: 4px;
+    width:  100px;
+    background: linear-gradient(-45deg, #437dd5, rgba(0, 0, 255, 0));
+    border-radius:  999px;
+    filter: drop-shadow(0 0 6px #699bff);
+    
+    animation:  tail 10s ease-in-out infinite,
+                falling 10s ease-in-out infinite;
+  
+  }
+  @keyframes tail{
+    0%{
+      width: 0px;
+    }
+    30%{
+      width: 100px;
+    }
+    100%{
+      width: 0px;
+    }
+  }
+  @keyframes falling{
+    0%{
+      transform: translateX(0);
+    }
+    100%{
+      transform: translateX(3000px);
+    }
+  }
+  .star::before, .star::after{
+    content: '';
+    position: absolute;
+    top:calc(50% - 2px);
+    right:0;
+    height: 4px;
+    width: 30px;
+    background: linear-gradient(-45deg, #437dd5, rgba(0, 0, 255, 0));
+    border-radius: 100%;
+    transform: translate(50%) rotateZ(45deg);
+  }
+  .star::after{
+    transform: translate(50%) rotateZ(-45deg);
+  }
+  .moon{
+    position: absolute;
+    top: 50px;
+    left: 200px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+  }
+  .moon:after{
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#111425,#3751e0);
+    background-attachment: fixed;
+  }
+  .mountain{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transform: scale(1.1);
+  }
+  .person{
+    padding: 0;
+    margin: 0;
+    z-index: 1001;
+  }
+  .scene i{
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: animate linear infinite;
+  }
+  @keyframes animate {
+    0%{
+      opacity: 0;
+      transform: translateY(0);
+    }
+    10%,90%{
+      opacity: 1;
+  
+    }
+    100%{
+      opacity: 0;
+      transform: translateY(-100px);
+  
+    }
+    
+  }

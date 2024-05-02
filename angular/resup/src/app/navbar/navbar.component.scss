@@ -1,20 +1,33 @@
 *{
-    color: rgb(8, 8, 8);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.bg-img {
-    /* The image used */
-    background-image: url("../../assets/mount.avifa");
+.Jordan{
+  background: linear-gradient(#37373d,#232425);
+  color: white;
+}
+.Garske{
+  color: white;
+  background: linear-gradient(#232425,#181d38);
+}
+// *{
+//     color: rgb(8, 8, 8);
+// }
+// .bg-img {
+//     /* The image used */
+//     background-image: url("../../assets/mount.avifa");
   
-    min-height: 380px;
+//     min-height: 380px;
     
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100;
-    /* Needed to position the navbar */
-    position: relative;
-  }
-  .cool{
-    border: 10px red;
-  }
+//     /* Center and scale the image nicely */
+//     background-position: center;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     width: 100;
+//     /* Needed to position the navbar */
+//     position: relative;
+//   }
+//   .cool{
+//     border: 10px red;
+//   }

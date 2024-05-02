@@ -1,9 +1,11 @@
 use crate::{models::{reviews::{Review, InsertReview as IPF}, client_to_reference::ClientReviews}, schema::reviews as rf_Table};
-use crate::models::client_to_reference;
-use rocket::{serde::json::Json, http::CookieJar};
+use rocket::serde::json::Json;
 use diesel::{RunQueryDsl, QueryDsl, SelectableHelper, ExpressionMethods};
-use serde::Serialize;
 use crate::{Db, schema::clients, models::client::Client};
+pub fn routes() -> Vec<rocket::Route> {
+    routes![gather_reviews,login_user]
+}
+
 //alias 
 #[get("/gather_reviews")]
 pub async fn gather_reviews(  conn:Db) -> Json<Vec<ClientReviews>>{
@@ -15,21 +17,24 @@ pub async fn gather_reviews(  conn:Db) -> Json<Vec<ClientReviews>>{
             .load::<(Client, Review)>(c)
         }
        ).await.unwrap();
-    let referecnes= client_result.into_iter()
+    let referecnes: Vec<ClientReviews>= client_result.into_iter()
     .map(|(cli,refen)| 
     {
         ClientReviews::new(cli, refen)
     }).collect();
+    print!("{}", referecnes.len());
     Json(referecnes)
 }
 
 
-
+//this allow user to make p
+//return: gives back a bool on if the message was written to the DB
 #[post("/write_my_review",format = "json", data="<review>")]
 pub async fn login_user( review: Json<IPF>,conn:Db) -> Json<bool>{
     let review = review.into_inner();
+    print!("{}, {}", review.client_id, review.elucidation.clone());
     let result = conn.run(move |c| {
-        diesel::update(rf_Table::table).filter(rf_Table::client_id.eq(review.client_id)).set(rf_Table::elucidation.eq(review.elucidation)).execute(c)
+        diesel::update(rf_Table::table).filter(rf_Table::id.eq(review.client_id)).set(rf_Table::elucidation.eq(review.elucidation)).execute(c)
     })
     .await;
     match result {
@@ -37,5 +42,3 @@ pub async fn login_user( review: Json<IPF>,conn:Db) -> Json<bool>{
         Err(_) => Json(false)
     }
     }
-    
-

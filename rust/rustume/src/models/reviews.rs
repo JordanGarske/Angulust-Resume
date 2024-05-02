@@ -1,5 +1,5 @@
-use crate::schema::{reviews, clients, client_to_room::client_id};
-use diesel::{Queryable, Insertable, Selectable, ExpressionMethods, BoolExpressionMethods,RunQueryDsl, QueryDsl, PgConnection, SelectableHelper, associations::{Associations, Identifiable} };
+use crate::schema::reviews;
+use diesel::{Queryable, Insertable, Selectable, ExpressionMethods, RunQueryDsl, QueryDsl, PgConnection,  associations::{Associations, Identifiable} };
 use serde::{Serialize, Deserialize};
 use crate::models::client::Client;
 #[derive( Serialize,Queryable,Selectable, Identifiable, Associations)]

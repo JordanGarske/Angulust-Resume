@@ -1,0 +1,15 @@
+<div class="scene">
+    <div class="moon"></div>
+    <div class="star"></div>
+    <i *ngFor="let star of stars"
+    [style.left]="star.left"
+    [style.top]="star.top"
+    [style.width]="star.width"
+    [style.height]="star.height"
+    [style.animationDuration] = star.animationDuration
+    [style.animationDelay] = star.animationDelay
+
+
+ ></i>
+    <img src="../../../../../assets/mountain.png" class="mountain" alt="">
+</div>

@@ -35,7 +35,6 @@ diesel::table! {
 diesel::table! {
     messages (id) {
         id -> Int4,
-        client_room_id -> Int4,
         client_id -> Int4,
         room_id -> Int4,
         #[max_length = 2000]

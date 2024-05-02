@@ -9,10 +9,19 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./reference-form.component.scss']
 })
 export class ReferenceFormComponent {
+  resultText: String = ""
   userData: ResumeReference= {client_id: 0,elucidation: ''};
   constructor(private userService: UserService, private router: Router){}
   submitWriting(){
     this.userData.client_id = this.userService.referenceID
-    this.userService.writeReview(this.userData).subscribe( );
+    this.userService.writeReview(this.userData).subscribe( didUpdate =>{
+      if(didUpdate){
+        this.resultText = "did update";
+      }else{
+        this.resultText= "update failed";
+      }
+    }
+      
+     );
   }
 }

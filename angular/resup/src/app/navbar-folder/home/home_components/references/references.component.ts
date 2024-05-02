@@ -62,22 +62,14 @@ export class ReferencesComponent implements OnInit {
   divideReference(): void {
     this.leftReferences = [];
     this.rightReferences = [];
-
     if (this.references.length % 2 === 0) {
       for (let i = 0; i < this.references.length; i += 2) {
-        this.references[i].card_front = 'front'
-        this.rightReferences.push(this.references[i]);
-        this.leftReferences.push(this.references[i + 1]);
-      }
-    } else {
-      for (let i = 0; i < this.references.length - 1; i += 2) {
         this.references[i].card_front = 'front'
         this.rightReferences.push(this.references[i]);
         this.references[i+1].card_front = 'front'
         this.leftReferences.push(this.references[i + 1]);
       }
-
-      this.rightReferences.push(this.references[this.references.length - 1]);
+    } else {
       const x: ClientReference = {
         id: 0,
         email: '',
@@ -88,7 +80,13 @@ export class ReferencesComponent implements OnInit {
         elucidation: '',
         card_front: 'front',
       };
-      this.leftReferences.push(x);
+      this.references.push(x)
+      for (let i = 0; i < this.references.length; i += 2) {
+        this.references[i].card_front = 'front'
+        this.rightReferences.push(this.references[i]);
+        this.references[i+1].card_front = 'front'
+        this.leftReferences.push(this.references[i + 1]);
+      }
     }
   }
   toggleFlip(cli_ref: ClientReference){

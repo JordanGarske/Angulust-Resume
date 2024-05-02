@@ -47,7 +47,7 @@ footer {
 .hover-box:hover {
   border: 1px solid #4eb981;
   transform: scale(1.5);
-  z-index: 2;
+  z-index: 10000;
   /* Add a border style and width */
 }
 

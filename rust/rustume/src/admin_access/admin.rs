@@ -9,13 +9,13 @@ use crate::Db;
 use crate::models::client::AdminUser;
 use crate::schema::clients::{self};
 use crate::authentications::authentication::cookie::cookie_thief;
-use crate::admin_access::user_routes::user::{give_reference_access, get_clients};
+use crate::admin_access::user_routes::user::{give_reference_access, get_clients,delete_user};
 use crate::admin_access::review_routes::review::{delete_review,get_user_reviews};
 //-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //routing for rocket
 
 pub fn routes() -> Vec<rocket::Route> {
-    routes![get_user_reviews,get_clients,give_reference_access,delete_review]
+    routes![get_user_reviews,get_clients,give_reference_access,delete_review,delete_user]
 }
 pub struct Admin<'r>(&'r str);
 
@@ -33,7 +33,7 @@ impl<'r> FromRequest<'r> for Admin<'r> {
         
         let db_outcome = req.guard::<Db>().await;
         let conn: Db = db_outcome.unwrap();
-        let id = cookie_thief(req.cookies());
+        let id = cookie_thief(req.cookies(), "user_id");
         let item:Result<AdminUser, Error>  = conn.run(move |temp_conn| {
             //find user  information
             clients::table.find(id).select(AdminUser::as_select()).first(temp_conn)

@@ -1,5 +1,4 @@
 use crate::admin_access::admin::Admin;
-use crate::models::client_to_reference::ClientReviews;
 use crate::{
     models::{
         client::Client,
@@ -8,17 +7,23 @@ use crate::{
     schema::{clients, reviews},
     Db,
 };
-use diesel::result::Error;
-use diesel::{ExpressionMethods, QueryDsl, RunQueryDsl, SelectableHelper};
+use diesel::{ExpressionMethods, RunQueryDsl};
 use rocket::serde::json::Json;
 use serde::Deserialize;
-
 //deccription: give permission and make a recode to write a review for a user
 //return: gives back confirmation that review was created
 
-#[post("/delete_user", format = "json", data = "<user>")]
-pub async fn delete_user(user: Json<Client>, _admin: Admin<'_>, conn: Db) -> Json<bool> {
+#[post("/client/delete", format = "json", data = "<user>")]
+pub async fn delete_user(user: Json<Client>, _admin: Admin<'_>, conn: Db) -> Json<&str> {
+
     let user = user.into_inner();
+    let delt_result = conn
+    .run(move |temp_conn| {
+        diesel::delete(reviews::table)
+            .filter(reviews::client_id.eq(user.id))
+            .execute(temp_conn)
+    })
+    .await;
     let delt_result = conn
         .run(move |temp_conn| {
             diesel::delete(clients::table)
@@ -26,7 +31,7 @@ pub async fn delete_user(user: Json<Client>, _admin: Admin<'_>, conn: Db) -> Jso
                 .execute(temp_conn)
         })
         .await;
-    return Json(true);
+    return Json("worked");
 }
 #[get("/client/get")]
 pub async fn get_clients(_admin: Admin<'_>, conn: Db) -> Json<Vec<Client>> {

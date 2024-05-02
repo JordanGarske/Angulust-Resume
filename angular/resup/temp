@@ -1,0 +1,27 @@
+    // function connect(uri: string): void {
+    //   const events = new EventSource(uri);
+
+    //   events.addEventListener('message', (ev) => {
+    //     const msg = JSON.parse(ev.data);
+    //     if (!('message' in msg) || !('room' in msg) || !('username' in msg)) return;
+    //     this.addMessage(msg.room, msg.username, msg.message, true);
+    //   });
+
+    //   events.addEventListener('open', () => {
+    //     this.setConnectedStatus(true);
+    //     console.log(`connected to event stream at ${uri}`);
+    //     retryTime = 1;
+    //   });
+
+    //   events.addEventListener('error', () => {
+    //     this.setConnectedStatus(false);
+    //     events.close();
+
+    //     const timeout = retryTime;
+    //     retryTime = Math.min(64, retryTime * 2);
+    //     console.log(`connection lost. attempting to reconnect in ${timeout}s`);
+    //     setTimeout(() => connect(uri), (() => timeout * 1000)());
+    //   });
+    // }
+
+    // connect(uri);

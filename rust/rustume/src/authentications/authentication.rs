@@ -4,6 +4,10 @@
 pub(crate) mod login;
 pub(crate) mod cookie;
 pub(crate) mod signup;
+	
+
+#[cfg(test)] mod tests;
+
 use crate::authentications::authentication::signup::create_user;
 use crate::authentications::authentication::login::login_user;
 //

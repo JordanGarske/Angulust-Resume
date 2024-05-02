@@ -1,10 +1,10 @@
-use serde::Serialize; // Make sure to add this if you're using Serde for serialization
+use serde::{Serialize, Deserialize}; // Make sure to add this if you're using Serde for serialization,
 
-#[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct CredentialApproval {
-    approved: bool,
-    admin: bool,
-    can_write_reference: Option<i32>,
+    pub approved: bool,
+    pub admin: bool,
+    pub can_write_reference: Option<i32>,
 }
 
 impl  CredentialApproval {

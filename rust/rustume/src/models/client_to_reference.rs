@@ -1,8 +1,5 @@
-use rocket::figment::value;
-use serde::{Serialize, Deserialize};
-use crate::schema::{clients,reviews};
+use serde::Serialize;
 use crate::models::{client::Client,reviews::Review};
-use diesel::{Queryable, Insertable, Selectable, ExpressionMethods, BoolExpressionMethods,RunQueryDsl, QueryDsl, PgConnection, SelectableHelper, Identifiable, associations::Associations };
 #[derive(Serialize)]
 pub struct ClientReviews {
     pub id: i32,
@@ -30,7 +27,7 @@ impl  ClientReviews{
 
         }
     }
-    pub fn new_JOIN(cli:Client, per_ref: Option<Review> ) -> ClientReviews{
+    pub fn new_join(cli:Client, per_ref: Option<Review> ) -> ClientReviews{
         let rev = ClientReviews::review_match(per_ref);
         ClientReviews {
             id:cli.id,

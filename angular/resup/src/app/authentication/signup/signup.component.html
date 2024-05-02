@@ -5,7 +5,7 @@
         <div class="card-header">
           <h5 class="card-title">Sign Up</h5>
         </div>
-        <div class="card-body">
+        <div *ngIf="isSignUp == false"class="card-body">
           <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
             <div class="mb-3">
               <label for="firstName" class="form-label">First Name</label>
@@ -24,19 +24,22 @@
               <input class="form-control" id="email" placeholder="Email" name="email" [(ngModel)]="userData.email" type="email" required>
             </div>
             <div class="mb-3">
-              <label for="phone_number" class="form-label">optional: phone number</label>
+              <label for="phone_number" class="form-label">phone number</label>
               <input class="form-control" id="firstName" placeholder="(XXX) XXX-XXXX" name="firstName" [(ngModel)]="userData.phone_number" required>
             </div>
             <div class="mb-3">
-              <label for="profession" class="form-label">work palce</label>
-              <input class="form-control" id="firstName" placeholder="Bobcat" name="firstName" [(ngModel)]="userData.profession" required>
+              <label for="profession" class="form-label">Job title</label>
+              <input class="form-control" id="firstName" placeholder="Job title" name="firstName" [(ngModel)]="userData.profession" required>
             </div>
             <div class="mb-3">
               <label for="company" class="form-label">company</label>
-              <input class="form-control" id="firstName" placeholder="Bobcat" name="firstName" [(ngModel)]="userData.company" required>
+              <input class="form-control" id="firstName" placeholder="company" name="firstName" [(ngModel)]="userData.company" required>
             </div>
             <button class="btn btn-primary" type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
           </form>
+        </div>
+        <div *ngIf="isSignUp == true"class="card-body">
+          you are sign-up, now login  
         </div>
         <div class="card-footer">
           <button class="btn btn-secondary" (click)="signup()">Login</button>
